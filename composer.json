@@ -1,0 +1,50 @@
+{
+    "name": "bekirozturk/symfony-oauth2-bundle",
+    "description": "A Symfony bundle for OAuth2 authentication, providing an easy way to integrate OAuth2 login with PKCE support. Designed for secure and reusable OAuth2 integrations in Symfony applications.",
+    "type": "symfony-bundle",
+    "keywords": [
+        "symfony",
+        "oauth2",
+        "sso",
+        "authentication",
+        "bundle"
+    ],
+    "homepage": "https://github.com/bekirozturk/symfony-oauth2-bundle",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Bekir Öztürk",
+            "email": "bekirozturk@live.com",
+            "homepage": "https://github.com/bekirozturk",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/bekirozturk/symfony-oauth2-bundle/issues",
+        "source": "https://github.com/bekirozturk/symfony-oauth2-bundle"
+    },
+    "autoload": {
+        "psr-4": {
+            "Symfony\\Bundle\\OAuth2Bundle\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.2.5",
+        "symfony/framework-bundle": "^5.4",
+        "symfony/http-client": "^5.4",
+        "symfony/security-bundle": "^5.4"
+    },
+    "require-dev": {
+        "symfony/test-pack": "^1.0",
+        "symfony/phpunit-bridge": "^5.4"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "^5.4"
+        }
+    }
+}

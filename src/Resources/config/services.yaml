@@ -1,0 +1,40 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Symfony\Bundle\OAuth2Bundle\:
+        resource: '../../*'
+        exclude: '../../{DependencyInjection,Entity,Tests}'
+
+    Symfony\Bundle\OAuth2Bundle\Service\OAuth2Service:
+        arguments:
+            - '@http_client'
+            - '@parameter_bag'
+        public: true
+
+    Symfony\Bundle\OAuth2Bundle\Controller\AuthController:
+        arguments:
+            - '@Symfony\Bundle\OAuth2Bundle\Service\OAuth2Service'
+            - '@session'
+        tags: ['controller.service_arguments']
+
+parameters:
+    env(OAUTH_CLIENT_ID): ''
+    env(OAUTH_CLIENT_SECRET): ''
+    env(OAUTH_REDIRECT_URI): ''
+    env(OAUTH_AUTHORIZE_URL): ''
+    env(OAUTH_TOKEN_URL): ''
+    env(OAUTH_USERINFO_URL): ''
+    env(OAUTH_SCOPE): ''
+    env(OAUTH_CODE_CHALLENGE_METHOD): 'S256'
+    env(OAUTH_RESPONSE_TYPE): 'code'
+
+    symfony_oauth2.client_id: '%env(OAUTH_CLIENT_ID)%'
+    symfony_oauth2.client_secret: '%env(OAUTH_CLIENT_SECRET)%'
+    symfony_oauth2.redirect_uri: '%env(OAUTH_REDIRECT_URI)%'
+    symfony_oauth2.authorize_url: '%env(OAUTH_AUTHORIZE_URL)%'
+    symfony_oauth2.token_url: '%env(OAUTH_TOKEN_URL)%'
+    symfony_oauth2.userinfo_url: '%env(OAUTH_USERINFO_URL)%'
+    symfony_oauth2.scope: '%env(OAUTH_SCOPE)%'

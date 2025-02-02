@@ -1,0 +1,8 @@
+# OAuth2 bundle routes
+oauth2_authorize:
+    path: /oauth2/authorize
+    controller: Symfony\Bundle\OAuth2Bundle\Controller\AuthController::redirectToAuthorization
+
+oauth2_check:
+    path: /oauth2/check
+    controller: Symfony\Bundle\OAuth2Bundle\Controller\AuthController::handleRedirect 
